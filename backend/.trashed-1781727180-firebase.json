@@ -1,0 +1,35 @@
+{
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "hosting": {
+    "public": "..",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**",
+      "backend/**",
+      "make_icons.py",
+      "docs/**"
+    ],
+    "headers": [
+      {
+        "source": "**/*.@(js|css|png|jpg|svg|webp)",
+        "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+      },
+      {
+        "source": "/index.html",
+        "headers": [
+          { "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" },
+          { "key": "X-Content-Type-Options", "value": "nosniff" },
+          { "key": "X-Frame-Options", "value": "DENY" },
+          { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+          { "key": "Permissions-Policy", "value": "geolocation=(), microphone=(), camera=()" },
+          { "key": "Strict-Transport-Security", "value": "max-age=63072000; includeSubDomains; preload" }
+        ]
+      }
+    ],
+    "rewrites": [{ "source": "**", "destination": "/index.html" }]
+  }
+}

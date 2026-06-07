@@ -1,0 +1,27 @@
+{
+  "name": "eShark — Central Inteligente de Ofertas",
+  "short_name": "eShark",
+  "description": "Compare Shopee, Mercado Livre e mais. Encontre a melhor oferta automaticamente.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0b1020",
+  "theme_color": "#0f172a",
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "categories": ["shopping", "lifestyle", "utilities"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "screenshots": [
+    { "src": "icons/screen-1.png", "sizes": "1080x1920", "type": "image/png", "form_factor": "narrow" }
+  ],
+  "shortcuts": [
+    { "name": "Ofertas do dia", "short_name": "Ofertas", "url": "./index.html#home", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Favoritos", "short_name": "Favoritos", "url": "./index.html#favorites", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] }
+  ],
+  "prefer_related_applications": false
+}
