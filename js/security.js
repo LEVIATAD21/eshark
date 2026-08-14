@@ -85,7 +85,9 @@
     return t;
   }
 
-  // ---------- 5) SAFE STORAGE (signed JSON) ----------
+  // ---------- 5) LOCAL STORAGE INTEGRITY MARKER ----------
+  // This detects casual in-session modification only; server-side validation
+  // remains the authoritative security boundary for application data.
   async function digest(str) {
     try {
       const buf = new TextEncoder().encode(str);
@@ -138,34 +140,15 @@
     Object.freeze(ENT);
   } catch (_) {}
 
-  // detect if console functions are overridden after load
-  const _origLog = console.log;
+  // Reserve a stable marker for diagnostics without interfering with browser tools.
   Object.defineProperty(window, '__esharkProbe', {
     get() { return true; }, configurable: false
   });
 
-  // detect devtools (very rough — only triggers a soft notice)
-  let devtoolsOpen = false;
-  function devtoolsCheck() {
-    const t = Date.now();
-    debugger; // jshint ignore:line
-    const dt = Date.now() - t;
-    if (dt > 80) {
-      if (!devtoolsOpen) {
-        devtoolsOpen = true;
-        try { console.info('%c⚠ eShark', 'color:#22c55e;font-size:18px;font-weight:800', 'Console aberto. Não cole código que terceiros pediram — pode roubar sua sessão.'); } catch (_) {}
-      }
-    }
-  }
-  // run periodically (soft) — disabled in production by default
-  if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
-    setInterval(devtoolsCheck, 4000);
-  }
-
-  // ---------- 7) BLOCK CLICKJACKING (frame buster) ----------
+  // ---------- 7) CLICKJACKING DEFENSE ----------
+  // Hosting headers are authoritative. Do not mutate the DOM as a frame buster.
   if (window.top !== window.self) {
-    try { window.top.location = window.self.location; }
-    catch (_) { document.body && (document.body.innerHTML = ''); }
+    try { console.warn('[eShark/security] Embedded context detected.'); } catch (_) {}
   }
 
   // ---------- 8) PROTECT CONTEXTMENU ON GALLERIES (UX, not security) ----------
