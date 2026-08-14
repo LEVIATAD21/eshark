@@ -136,7 +136,8 @@ a { color: var(--accent); text-decoration: none; }
 .hero-badge { display:inline-block; background: rgba(245,158,11,.18); color: var(--gold); padding: 4px 8px; border-radius: 8px; font-size: 11px; font-weight: 800; letter-spacing: .5px; }
 .hero-text h3 { margin: 6px 0 4px; font-size: 18px; }
 .hero-text p { margin: 0; color: var(--muted); font-size: 13px; }
-.hero-art { font-size: 56px; position: relative; z-index: 1; filter: drop-shadow(0 6px 18px rgba(0,0,0,.45)); }
+.hero-art { width: 112px; height: 86px; position: relative; z-index: 1; filter: drop-shadow(0 6px 18px rgba(0,0,0,.45)); flex: 0 0 auto; overflow: hidden; border-radius: 14px; }
+.hero-art img { width: 100%; height: 100%; object-fit: cover; object-position: 75% center; transform: scale(1.28); }
 @keyframes float { 0%{transform: translateY(0)} 50%{transform: translateY(-6px)} 100%{transform: translateY(0)} }
 
 /* SECTION HEAD */
