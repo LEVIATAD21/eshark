@@ -4,6 +4,8 @@
   <img src="assets/eshark-hero-banner.png" alt="Ilustração do eShark comparando ofertas de compra com segurança" width="100%" />
 </p>
 
+![Demonstração animada de ofertas sendo comparadas por critérios e resultando em recomendação transparente](assets/eshark-motion.svg)
+
 <p align="center">
   <strong>Central inteligente de ofertas para comparar preço, frete, prazo e reputação em uma única decisão.</strong>
 </p>
