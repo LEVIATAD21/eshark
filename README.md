@@ -1,3 +1,5 @@
+![Motion Banner](assets/motion-banner.gif)
+
 # eShark
 
 <p align="center">
